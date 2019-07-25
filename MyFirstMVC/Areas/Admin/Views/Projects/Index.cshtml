@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MyFirstMVC.Models.Project>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center">Projeler</h2>
+<hr />
+
+<a href="@Url.Action("Create")" class="btn btn-primary">Yeni Proje</a>
+
+@*<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            @item.Title
+        </li>
+    }
+</ul>*@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Proje Adı</th>
+            <th>Açıklama</th>
+            <th>Body</th>
+            <th>Görsel</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>@Html.DisplayFor(modelItem => item.Body)</td>
+                <td><img height="60" width="120" src="/images/@item.Photo" /></td>
+                <td><a href="@Url.Action("Edit",new { id=item.Id})" class="btn btn-success btn-sm">Düzenle</a><a href="@Url.Action("Delete",new { id=item.Id})" class="btn btn-danger btn-sm" onclick="return confirm('Bu kaydı silmek istediğinize emin misniz?'); ">Sil</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

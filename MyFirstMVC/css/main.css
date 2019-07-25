@@ -1,0 +1,5 @@
+#demo {background-color: rgba(0, 0, 0, 0.74);}
+.social-media a:link{color: white}
+.social-media a:link{font-size: 25px; padding: 5px;}
+.social-media a:hover{color: white;}
+footer a:link {color: white}

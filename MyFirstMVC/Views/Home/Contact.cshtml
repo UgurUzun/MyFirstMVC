@@ -1,0 +1,86 @@
+﻿@model MyFirstMVC.Models.ContactViewModel
+
+<div class="jumbotron text-center">
+    <h1>İLETİŞİM</h1>
+    <p>Uğur Uzun</p>
+</div>
+
+
+<div class="row my-3">
+    <div class="col-6">
+        @using (Html.BeginForm())
+        {
+            if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+                <div class="alert alert-danger">@ViewBag.Error</div>
+            }
+
+            if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+                <div class="alert alert-success">@ViewBag.Error</div>
+            }
+
+            @Html.ValidationSummary(false)
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.FirstName, new { @class = "col-md-2 col-form-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", placeholder = "Ad" })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.LastName, new { @class = "col-md-2 col-form-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", placeholder = "Soyad" })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.TelePhone, new { @class = "col-md-2 col-form-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.TelePhone, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.TelePhone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Message, new { @class = "col-md-2 col-form-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Message, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Email, new { @class = "col-md-2 col-form-label" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-10 offset-md-2">
+                    @Html.CheckBoxFor(model => model.PrivacyPolicyAccepted)
+                    @Html.ValidationMessageFor(model => model.PrivacyPolicyAccepted, "", new { @class = "text-danger" })
+                    <label for="PrivacyPolicyAccepted">
+                        <a href="@Url.Action("Kvkk","Footer")" target="_blank">KVKK Aydınlatma metnini okudum kabul ediyorum.</a>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="tel" class="col-md-2 col-form-label"></label>
+                <div class="col-md-10">
+                    <button type="submit" class="btn btn-primary">Gönder</button>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col-6">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6015.674359304509!2d28.877540869483955!3d41.072551572313714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab06b4d3e22c7%3A0xb3fbbcf4a421a6b5!2sCevatpa%C5%9Fa+Mah.!5e0!3m2!1str!2str!4v1563448193237!5m2!1str!2str" width="550" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+</div>
