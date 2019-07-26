@@ -37,7 +37,7 @@
                 <td>@Html.DisplayFor(modelItem => item.Title)</td>
                 <td>@Html.DisplayFor(modelItem => item.Description)</td>
                 <td>@Html.DisplayFor(modelItem => item.Body)</td>
-                <td><img height="60" width="120" src="/images/@item.Photo" /></td>
+                <td><img src="/Uploads/@item.Photo" width="50"/></td>
                 <td><a href="@Url.Action("Edit",new { id=item.Id})" class="btn btn-success btn-sm">Düzenle</a><a href="@Url.Action("Delete",new { id=item.Id})" class="btn btn-danger btn-sm" onclick="return confirm('Bu kaydı silmek istediğinize emin misniz?'); ">Sil</a></td>
             </tr>
         }
